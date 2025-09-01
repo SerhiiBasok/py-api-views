@@ -28,7 +28,9 @@ jobs:
         run: flake8
 
       - name: Apply migrations
-        run: python manage.py migrate
+        run: |
+          python manage.py makemigrations
+          python manage.py migrate
 
       - name: Run tests
         timeout-minutes: 5
